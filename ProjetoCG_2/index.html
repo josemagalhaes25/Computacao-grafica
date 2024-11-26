@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Three.js - Cobras e Escadas</title>
+        <!-- Retiramos os imports todos que tínhamos, iremos importar diretamente
+             através do ficheiro appThree.js -->
+        <style>
+            body { margin: 0; overflow: hidden; }
+            canvas { display: block; }
+            #instructions {
+                position: absolute;
+                top: 20px;
+                left: 10px;
+                background-color: rgba(255, 255, 255, 0.8);
+                padding: 10px;
+                border-radius: 5px;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                z-index: 10;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Como alguns browsers não suportam nativamente a importação dinâmica (importmaps),
+             temos que importar este script de forma a garantir que a importação de bibliotecas
+             externas de forma dinâmica -->
+        <script async="" src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+        <!-- Aqui especificamos as bibliotecas externas a serem utilizadas na nossa aplicação-->
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://unpkg.com/three@0.151.2/build/three.module.js",
+                    "FBXLoader": "https://unpkg.com/three@0.151.2/examples/jsm/loaders/FBXLoader.js",
+                    "PointerLockControls": "https://unpkg.com/three@0.151.2/examples/jsm/controls/PointerLockControls.js"
+                }
+            }
+        </script>
+
+        <!-- Aqui atualizamos o script para ser do tipo "module", que nos vai permitir
+             usar as bibliotecas da ThreeJS de forma modular -->
+        <script type="module" src="./JavaScript/appThree.js"></script>
+
+        <!-- Div para exibir as instruções -->
+        <div id="instructions">
+            Instruções: <br>
+            Prima 2 para alterar para dia/noite; <br>
+            Prima 3 para rodar/parar o dado; <br>
+            Prima 'C' para mudar a câmara; <br>
+            Prima 'Enter'para subir as escadas e descer as cobras;
+        </div>
+
+        <!-- Div para exibir o resultado -->
+        <div id="resultado"></div>
+    </body>
+</html>
